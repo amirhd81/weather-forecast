@@ -1,0 +1,38 @@
+.Container {
+  display: flex;
+  flex-flow: column;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: aliceblue;
+  margin-bottom: 9px;
+  border-radius: 8px;
+  
+  &:hover {
+    background-color: #eee;
+  }
+
+  p {
+    font-size: 14px;
+    font-weight: 400;
+    color: #292929;
+    margin-bottom: 5px;
+  }
+}
+
+.WeatherStatus {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.WeatherIcon {
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
+}
+
+.WeatherDes {
+    font-size: 25px;
+    font-weight: 700;
+}

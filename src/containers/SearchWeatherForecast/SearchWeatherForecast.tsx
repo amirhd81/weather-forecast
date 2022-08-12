@@ -76,6 +76,10 @@ export const SearchWeatherForecast = () => {
         onChange={(selectedCity) => onChangeCity(selectedCity)}
         data={mappedCities}
       />
+
+      {groupedWeatherData.length ? (
+        <WeatherData weatherData={groupedWeatherData} />
+      ) : null}
     </div>
   );
 };
