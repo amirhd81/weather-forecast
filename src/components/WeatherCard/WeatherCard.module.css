@@ -12,6 +12,7 @@
   background-color: aliceblue;
   margin-bottom: 9px;
   border-radius: 8px;
+  cursor: pointer;
 }
 
 .Container:hover {

@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import Select, { GroupBase, SingleValue, StylesConfig } from "react-select";
 
 import classes from "./Dropdown.module.css";
@@ -23,12 +23,14 @@ export const Dropdown = <T extends object>({
   onChange,
 }: Props<T>) => {
   const customStyles = (): StylesConfig<T, IsMulti, GroupBase<T>> => ({
-    singleValue: (provided, state) => ({
+    singleValue: (provided) => ({
+      ...provided,
       fontSize: "16px",
       position: "absolute",
       paddingLeft: "16px",
     }),
-    placeholder: (provided, state) => ({
+    placeholder: (provided) => ({
+      ...provided,
       fontSize: "16px",
       position: "absolute",
       paddingLeft: "16px",

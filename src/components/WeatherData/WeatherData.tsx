@@ -21,8 +21,9 @@ export const WeatherData: FC<WeatherProps> = (props) => {
 
   return (
     <div>
-      {weatherData.map((data) => (
+      {weatherData.map((data, index) => (
         <ExpandMenu
+          key={index}
           menuTitle={moment(data[0].dt_txt, "YYYY-MM-DD HH:mm:ss").format(
             "YYYY MMM Do"
           )}
@@ -31,8 +32,9 @@ export const WeatherData: FC<WeatherProps> = (props) => {
               row={4}
               width={540}
               items={data}
-              itemComponent={(item, style) => (
+              itemComponent={(item, style, i) => (
                 <WeatherCard
+                  key={i}
                   style={style}
                   weather={item.weather[0]}
                   temp={item.main.temp}
