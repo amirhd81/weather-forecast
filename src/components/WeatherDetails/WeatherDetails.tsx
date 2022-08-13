@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { getWeatherIcon } from "../../utils/getWeatherIcon";
 import classes from "./WeatherDetails.module.css";
+import { useMediaQuery } from "react-responsive";
 
 interface WeatherDetailsProps {
   data: WeatherType;
@@ -11,21 +12,32 @@ interface WeatherDetailsProps {
 export const WeatherDetails: FC<WeatherDetailsProps> = (props) => {
   const { data, selectedCitySunrise, selectedCitySunset } = props;
 
+  const isMobileDevice = useMediaQuery({
+    query: "(max-width: 27.5em)",
+  });
+
+  const renderMainDetailPart = () => (
+    <div>
+      <p>{data.weather[0].description}</p>
+      <p>
+        The temperature is <span>{data.main.temp}°C</span> but it feels like{" "}
+        <span>{data.main.feels_like}°C</span>.
+      </p>
+    </div>
+  );
+
   return (
     <div className={classes.Container}>
-      <img
-        className={classes.WeatherIcon}
-        src={getWeatherIcon(data.weather[0].main)}
-        alt="weather-icon"
-      />
+      <div className={classes.MainDetailContainer}>
+        <img
+          className={classes.WeatherIcon}
+          src={getWeatherIcon(data.weather[0].main)}
+          alt="weather-icon"
+        />
+        {isMobileDevice && renderMainDetailPart()}
+      </div>
       <div>
-        <div>
-          <p>{data.weather[0].description}</p>
-          <p>
-            The temperature is <span>{data.main.temp}°C</span> but it feels like{" "}
-            <span>{data.main.feels_like}°C</span>.
-          </p>
-        </div>
+        {!isMobileDevice && renderMainDetailPart()}
         <div className={classes.Details}>
           <p>
             Humidity: <span>{data.main.humidity}%</span>
@@ -40,7 +52,7 @@ export const WeatherDetails: FC<WeatherDetailsProps> = (props) => {
             Wind Degree: <span>{data.wind.deg}°</span>
           </p>
           <p>
-            Wind Speed: <span>{data.wind.deg} m/s</span>
+            Wind Speed: <span>{data.wind.speed} m/s</span>
           </p>
           <p>
             Wind Gust: <span>{data.wind.gust} m/s</span>

@@ -19,6 +19,12 @@
   outline: none;
 }
 
+@media (max-width: 37.5em) {
+  .Container {
+    width: 95%;
+  }
+}
+
 .ContentContainer {
   padding: 15px 10px 10px;
   background-color: #fff;

@@ -1,3 +1,5 @@
+@import '../../styles/mixins';
+
 .Container {
   display: flex;
   flex-direction: row;
@@ -14,6 +16,17 @@
     font-weight: 700;
     color: #292929;
   }
+
+  @include respond(small-phone) {
+    flex-direction: column;
+  }
+}
+
+.MainDetailContainer {
+  @include respond(small-phone) {
+    display: flex;
+    align-items: center;
+  }
 }
 
 .WeatherIcon {
@@ -24,12 +37,13 @@
 .Details {
   display: flex;
   flex-flow: row wrap;
+  justify-content: space-between;
   margin-top: 35px;
   margin-bottom: 25px;
   border-left: 2px solid #dedede;
   padding-left: 10px;
 
   p {
-    width: 33.33%;
+    width: 30%;
   }
 }
