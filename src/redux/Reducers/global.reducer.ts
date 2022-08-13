@@ -1,9 +1,4 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import {
-  GlobalReducerStateType,
-  OpenModalWithContentPayload,
-} from "../../ts/reducers-state";
-import { AppThunk } from "../config";
 
 const initialState: GlobalReducerStateType = {
   loading: false,
@@ -32,10 +27,7 @@ export const globalSlice = createSlice({
       { payload }: PayloadAction<OpenModalWithContentPayload>
     ) => {
       state.mainModal = {
-        content: payload.content,
-        title: payload.title,
-        open: payload.open,
-        onClose: payload.onClose,
+        ...payload,
       };
     },
     CLOSE_MODAL: (state) => {

@@ -1,4 +1,4 @@
-import { Action, AnyAction, configureStore, Dispatch } from "@reduxjs/toolkit";
+import { Action, configureStore, Dispatch } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import logger from "redux-logger";
 import thunk, { ThunkAction } from "redux-thunk";
@@ -16,7 +16,6 @@ export const store = configureStore({
 });
 
 type RootState = ReturnType<typeof store.getState>;
-type AppDispatch = typeof store.dispatch;
 
 export type AppThunk<ReturnType = void> = ThunkAction<
   ReturnType,

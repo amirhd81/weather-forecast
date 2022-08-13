@@ -1,15 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
 import { SingleValue } from "react-select";
 import { Dropdown, WeatherData, WeatherDetails } from "../../components";
 import { getFiveDayForecast } from "../../integrations/apiCalls/getFiveDayForecast";
-import { AxiosInstance } from "../../integrations/baseApi";
 import { useAppDispatch, useAppSelector } from "../../redux/config";
-import {
-  OPEN_MODAL_WITH_CUSTOM_CONTENT,
-  TOGGLE_LOADING_OFF,
-  TOGGLE_LOADING_ON,
-} from "../../redux/Reducers";
+import { OPEN_MODAL_WITH_CUSTOM_CONTENT } from "../../redux/Reducers";
 import classes from "./SearchWeatherForecast.module.css";
 
 const cities = require("../../data/cities.json");
@@ -28,6 +22,11 @@ export const SearchWeatherForecast = () => {
   const weatherForecast = useAppSelector((state) => state.weatherForecast);
   const { groupedWeatherData, selectedCitySunrise, selectedCitySunset } =
     weatherForecast;
+
+  useEffect(() => {
+    if (!selectedCity) return;
+    dispatch(getFiveDayForecast(selectedCity.lat, selectedCity.lng));
+  }, [selectedCity, dispatch]);
 
   const onChangeCity = (selectedCity?: SingleValue<CityType>) => {
     if (!selectedCity) return;
@@ -50,11 +49,6 @@ export const SearchWeatherForecast = () => {
       })
     );
   };
-
-  useEffect(() => {
-    if (!selectedCity) return;
-    dispatch(getFiveDayForecast(selectedCity.lat, selectedCity.lng));
-  }, [selectedCity]);
 
   return (
     <div className={classes.Container}>

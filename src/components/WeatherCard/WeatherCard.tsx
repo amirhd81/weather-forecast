@@ -1,5 +1,5 @@
 import React, { CSSProperties, FC } from "react";
-import { getWeatherIcon } from "../../utils/getIcon";
+import { getWeatherIcon } from "../../utils/getWeatherIcon";
 
 import classes from "./WeatherCard.module.css";
 
@@ -18,9 +18,14 @@ interface WeatherCardProps {
 export const WeatherCard: FC<WeatherCardProps> = (props) => {
   const { weather, temp, feelsLike, time, style, onClickWeatherCard } = props;
   return (
-    <div onClick={onClickWeatherCard} className={classes.Container} style={style}>
+    <div
+      onClick={onClickWeatherCard}
+      className={classes.Container}
+      style={style}
+    >
       <div className={classes.WeatherStatus}>
         <img
+          alt="weather-icon"
           className={classes.WeatherIcon}
           src={getWeatherIcon(weather.main)}
         />

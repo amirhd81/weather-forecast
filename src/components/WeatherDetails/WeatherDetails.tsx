@@ -1,13 +1,11 @@
-import moment from "moment";
 import React, { FC } from "react";
-import { SVGs } from "../../assets";
-import { getWeatherIcon } from "../../utils/getIcon";
+import { getWeatherIcon } from "../../utils/getWeatherIcon";
 import classes from "./WeatherDetails.module.css";
 
 interface WeatherDetailsProps {
   data: WeatherType;
-  selectedCitySunrise?: number;
-  selectedCitySunset?: number;
+  selectedCitySunrise?: string;
+  selectedCitySunset?: string;
 }
 
 export const WeatherDetails: FC<WeatherDetailsProps> = (props) => {
@@ -18,6 +16,7 @@ export const WeatherDetails: FC<WeatherDetailsProps> = (props) => {
       <img
         className={classes.WeatherIcon}
         src={getWeatherIcon(data.weather[0].main)}
+        alt="weather-icon"
       />
       <div>
         <div>
@@ -50,13 +49,12 @@ export const WeatherDetails: FC<WeatherDetailsProps> = (props) => {
         <div>
           {selectedCitySunrise && (
             <p>
-              Sunrise:{" "}
-              <span>{moment.unix(selectedCitySunrise).format("HH:mm")}</span>
+              Sunrise: <span>{selectedCitySunrise}</span>
             </p>
           )}
           {selectedCitySunset && (
             <p>
-              Sunset: <span>{moment.unix(selectedCitySunset).format("HH:mm")}</span>
+              Sunset: <span>{selectedCitySunset}</span>
             </p>
           )}
         </div>

@@ -1,5 +1,3 @@
-import { ReactNode } from "react";
-
 declare interface GlobalReducerStateType {
   loading: boolean;
   loadingColor: string;
@@ -14,8 +12,8 @@ declare interface OpenModalWithContentPayload {
 
 declare interface WeatherForeCastReducerStateType {
   groupedWeatherData: WeatherType[][];
-  selectedCitySunset?: number;
-  selectedCitySunrise?: number;
+  selectedCitySunset?: string;
+  selectedCitySunrise?: string;
 }
 
 declare interface GetFiveDayForecastPayload {

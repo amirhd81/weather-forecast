@@ -8,5 +8,9 @@ export const getWeatherIcon = (type: string) => {
       return SVGs.ClearIcon;
     case "Clouds":
       return SVGs.CloudyIcon;
+    case "Snow":
+      return SVGs.SnowIcon;
+    default:
+      return SVGs.ClearIcon;
   }
 };

@@ -1,5 +1,5 @@
-import moment from "moment";
 import React, { FC } from "react";
+import moment from "moment";
 import { ExpandMenu, GroupItem, WeatherCard } from "../";
 import classes from './WeatherData.module.css'
 

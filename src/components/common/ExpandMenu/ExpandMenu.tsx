@@ -17,7 +17,7 @@ export const ExpandMenu: FC<MenuProps> = (props) => {
     <div className={classes.Container}>
       <div className={classes.Header} onClick={() => toggleMenuOpen(!menuOpen)}>
         <p className={classes.Title}>{menuTitle}</p>
-        <img src={menuOpen ? SVGs.CheveronUp : SVGs.CheveronDown} />
+        <img alt="close-icon" src={menuOpen ? SVGs.CheveronUp : SVGs.CheveronDown} />
       </div>
       {menuOpen && (
         <div className={classes.ContentRoot}>{expandedComponent}</div>

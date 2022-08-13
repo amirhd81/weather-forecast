@@ -1,9 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { getFiveDayForecast } from "../../integrations/apiCalls/getFiveDayForecast";
-import {
-  GetFiveDayForecastPayload,
-  WeatherForeCastReducerStateType,
-} from "../../ts/reducers-state";
+import moment from "moment";
 import { onGroupWeatherData } from "../PrepareFunctions";
 
 const initialState: WeatherForeCastReducerStateType = {
@@ -20,10 +16,18 @@ export const weatherForecastSlice = createSlice({
         { payload }: PayloadAction<GetFiveDayForecastPayload>
       ) => {
         state.groupedWeatherData = payload.groupedWeatherData;
-        state.selectedCitySunrise = payload.selectedCitySunrise;
-        state.selectedCitySunset = payload.selectedCitySunset;
+        if (payload.selectedCitySunrise) {
+          state.selectedCitySunrise = moment
+            .unix(payload.selectedCitySunrise)
+            .format("HH:mm");
+        }
+        if (payload.selectedCitySunset) {
+          state.selectedCitySunset = moment
+            .unix(payload.selectedCitySunset)
+            .format("HH:mm");
+        }
       },
-      prepare: onGroupWeatherData
+      prepare: onGroupWeatherData,
     },
   },
 });

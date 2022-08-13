@@ -14,6 +14,7 @@ export const ModalHeader: FC<ModalHeaderProps> = (props) => {
       <p className={classes.Title}>{title}</p>
       <img
         onClick={onClose}
+        alt="close-icon"
         className={classes.CloseIcon}
         src={SVGs.CloseIcon}
       />
