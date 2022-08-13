@@ -4,3 +4,13 @@
   color: #292929;
   margin-bottom: 8px;
 }
+
+.Container {
+  width: 400px;
+}
+
+@media (max-width: 27.5em) {
+  .Container {
+    width: 95%;
+  }
+}

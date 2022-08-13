@@ -1,7 +1,8 @@
 import React, { FC } from "react";
 import moment from "moment";
 import { ExpandMenu, GroupItem, WeatherCard } from "../";
-import classes from './WeatherData.module.css'
+import classes from "./WeatherData.module.css";
+import { useMediaQuery } from "react-responsive";
 
 interface WeatherProps {
   weatherData: WeatherType[][];
@@ -10,6 +11,10 @@ interface WeatherProps {
 
 export const WeatherData: FC<WeatherProps> = (props) => {
   const { weatherData, onClickWeatherCard } = props;
+
+  const isMobileDevice = useMediaQuery({
+    query: "(max-width: 27.5em)",
+  });
 
   return (
     <div className={classes.WeatherData}>
@@ -21,8 +26,9 @@ export const WeatherData: FC<WeatherProps> = (props) => {
           )}
           expandedComponent={
             <GroupItem
-              row={4}
-              width={540}
+              row={isMobileDevice ? 2 : 4}
+              percentage={isMobileDevice}
+              width={isMobileDevice ? 100 : 540}
               items={data}
               itemComponent={(item, style, i) => (
                 <WeatherCard

@@ -22,6 +22,7 @@ export const Dropdown = <T extends object>({
   isSearchable,
   onChange,
 }: Props<T>) => {
+
   const customStyles = (): StylesConfig<T, IsMulti, GroupBase<T>> => ({
     singleValue: (provided) => ({
       ...provided,
@@ -42,7 +43,7 @@ export const Dropdown = <T extends object>({
     container: (provided) => ({
       ...provided,
       height: "42px",
-      width: "400px",
+      width: "100%",
     }),
     control: (provided) => ({
       ...provided,
@@ -64,7 +65,7 @@ export const Dropdown = <T extends object>({
     }),
     menuList: (provided) => ({
       ...provided,
-      width: "400px",
+      width: "100%",
       padding: 0,
       "&::-webkit-scrollbar": {
         display: "none",

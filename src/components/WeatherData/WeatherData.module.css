@@ -1,10 +1,17 @@
 .WeatherData {
   overflow: auto;
   margin: 20px 0;
+  width: 560px;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
 
 .WeatherData::-webkit-scrollbar {
   display: none;
+}
+
+@media (max-width: 27.5em) {
+  .WeatherData {
+    width: 95%;
+  }
 }

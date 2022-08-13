@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { SingleValue } from "react-select";
 import { Dropdown, WeatherData, WeatherDetails } from "../../components";
 import { getFiveDayForecast } from "../../integrations/apiCalls/getFiveDayForecast";
@@ -14,7 +14,7 @@ const mappedCities: CityType[] = cities.map((city: any) => ({
   label: city.name,
 }));
 
-export const SearchWeatherForecast = () => {
+export const SearchWeatherForecast: FC = () => {
   const dispatch = useAppDispatch();
   const [selectedCity, setSelectedCity] =
     useState<SingleValue<CityType> | null>(null);
