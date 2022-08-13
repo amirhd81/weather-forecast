@@ -1,0 +1,31 @@
+.Container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 10px;
+  height: 42px;
+  background-color: bisque;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+}
+
+.Title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #292929;
+}
+
+.CloseIcon {
+  width: 25px;
+  height: 25px;
+}

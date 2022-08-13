@@ -1,0 +1,10 @@
+.WeatherData {
+  overflow: auto;
+  margin: 20px 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

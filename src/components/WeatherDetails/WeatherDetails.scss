@@ -1,0 +1,35 @@
+.Container {
+  display: flex;
+  flex-direction: row;
+
+  p {
+    font-size: 14px;
+    font-weight: 500;
+    color: #292929;
+    margin-bottom: 3px;
+  }
+
+  span {
+    font-size: 18px;
+    font-weight: 700;
+    color: #292929;
+  }
+}
+
+.WeatherIcon {
+  width: 150px;
+  height: 150px;
+}
+
+.Details {
+  display: flex;
+  flex-flow: row wrap;
+  margin-top: 35px;
+  margin-bottom: 25px;
+  border-left: 2px solid #dedede;
+  padding-left: 10px;
+
+  p {
+    width: 33.33%;
+  }
+}

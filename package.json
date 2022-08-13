@@ -34,7 +34,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "switch:env:loc": "cp ./src/env/local.js ./src/env/base.js",
+    "switch:env:dev": "cp ./src/env/dev.js ./src/env/base.js",
+    "switch:env:prod": "cp ./src/env/prod.js ./src/env/base.js"
   },
   "eslintConfig": {
     "extends": [

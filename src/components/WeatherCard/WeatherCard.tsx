@@ -12,12 +12,13 @@ interface WeatherCardProps {
   feelsLike: number;
   time: string;
   style?: CSSProperties;
+  onClickWeatherCard: () => void;
 }
 
 export const WeatherCard: FC<WeatherCardProps> = (props) => {
-  const { weather, temp, feelsLike, time, style } = props;
+  const { weather, temp, feelsLike, time, style, onClickWeatherCard } = props;
   return (
-    <div className={classes.Container} style={style}>
+    <div onClick={onClickWeatherCard} className={classes.Container} style={style}>
       <div className={classes.WeatherStatus}>
         <img
           className={classes.WeatherIcon}

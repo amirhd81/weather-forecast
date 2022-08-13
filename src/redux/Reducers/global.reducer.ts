@@ -3,6 +3,7 @@ import {
   GlobalReducerStateType,
   OpenModalWithContentPayload,
 } from "../../ts/reducers-state";
+import { AppThunk } from "../config";
 
 const initialState: GlobalReducerStateType = {
   loading: false,
@@ -47,4 +48,5 @@ export const {
   TOGGLE_LOADING_ON,
   TOGGLE_LOADING_OFF,
   OPEN_MODAL_WITH_CUSTOM_CONTENT,
+  CLOSE_MODAL,
 } = globalSlice.actions;

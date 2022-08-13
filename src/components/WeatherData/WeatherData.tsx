@@ -1,26 +1,18 @@
 import moment from "moment";
 import React, { FC } from "react";
 import { ExpandMenu, GroupItem, WeatherCard } from "../";
+import classes from './WeatherData.module.css'
 
 interface WeatherProps {
-  weatherData: {
-    dt_txt: string;
-    weather: {
-      main: string;
-      description: string;
-    }[];
-    main: {
-      temp: number;
-      feels_like: number;
-    };
-  }[][];
+  weatherData: WeatherType[][];
+  onClickWeatherCard: (data: WeatherType) => void;
 }
 
 export const WeatherData: FC<WeatherProps> = (props) => {
-  const { weatherData } = props;
+  const { weatherData, onClickWeatherCard } = props;
 
   return (
-    <div>
+    <div className={classes.WeatherData}>
       {weatherData.map((data, index) => (
         <ExpandMenu
           key={index}
@@ -34,6 +26,7 @@ export const WeatherData: FC<WeatherProps> = (props) => {
               items={data}
               itemComponent={(item, style, i) => (
                 <WeatherCard
+                  onClickWeatherCard={() => onClickWeatherCard(item)}
                   key={i}
                   style={style}
                   weather={item.weather[0]}

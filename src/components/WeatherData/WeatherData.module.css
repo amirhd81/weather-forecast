@@ -1,1 +1,10 @@
-/* No CSS */
+.WeatherData {
+  overflow: auto;
+  margin: 20px 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.WeatherData::-webkit-scrollbar {
+  display: none;
+}

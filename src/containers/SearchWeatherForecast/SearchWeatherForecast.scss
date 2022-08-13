@@ -4,7 +4,8 @@
   align-items: center;
   justify-content: center;
   width: auto;
-  overflow: auto;
-  height: 50%;
-  margin: 20px auto;
+  overflow: hidden;
+  height: 100vh;
+  padding-top: 20px;
+  box-sizing: border-box;
 }

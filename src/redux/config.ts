@@ -1,13 +1,15 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { Action, AnyAction, configureStore, Dispatch } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import logger from "redux-logger";
-import thunk from "redux-thunk";
+import thunk, { ThunkAction } from "redux-thunk";
 
 import { globalSlice } from "./Reducers";
+import { weatherForecastSlice } from "./Reducers/weatherForecast.reducer";
 
 export const store = configureStore({
   reducer: {
     global: globalSlice.reducer,
+    weatherForecast: weatherForecastSlice.reducer,
   },
   middleware: [thunk, logger],
   devTools: process.env.NODE_ENV !== "production",
@@ -16,5 +18,12 @@ export const store = configureStore({
 type RootState = ReturnType<typeof store.getState>;
 type AppDispatch = typeof store.dispatch;
 
-export const useAppDispatch = () => useDispatch<AppDispatch>();
+export type AppThunk<ReturnType = void> = ThunkAction<
+  ReturnType,
+  RootState,
+  unknown,
+  Action<string>
+>;
+
+export const useAppDispatch = () => useDispatch<Dispatch<any>>();
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;

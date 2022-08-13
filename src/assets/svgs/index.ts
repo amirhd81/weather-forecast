@@ -3,6 +3,7 @@ import CheveronUp from "./cheveron-up.svg";
 import RainIcon from "./wi-day-rain.svg";
 import CloudyIcon from "./wi-cloudy-windy.svg";
 import ClearIcon from "./wi-day-cloudy.svg";
+import CloseIcon from "./close.svg";
 
 export const SVGs = {
   CheveronDown,
@@ -10,4 +11,5 @@ export const SVGs = {
   RainIcon,
   ClearIcon,
   CloudyIcon,
+  CloseIcon,
 };

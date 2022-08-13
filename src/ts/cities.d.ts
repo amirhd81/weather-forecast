@@ -3,6 +3,8 @@ declare type CityType = {
   label: string;
   name: string;
   country: string;
-  lat: string;
-  lng: string;
+  lat: number;
+  lng: number;
+  sunrise?: number;
+  sunset?: number
 };
